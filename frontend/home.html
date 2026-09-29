@@ -4,78 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Job Application Tracker</title>
 </head>
 <body>
     <div class="app">
-        <nav>Job Application Tracker</nav>
-         <aside>
-            <div class="calender">Calender</div>
-            <div class="todoList">TodoList</div>
-            <div class="notes">Notes</div>
-         </aside>
-         <main>
-            <section class="stats">
-                <div class="totalApplied">Total Applied</div>
-                <div class="overview">Pie Chart</div>
-                <div class="monthly">Monthly applied</div>
-            </section>
-            <section>
-                 <table class="applications-table">
+        <nav>
+            <div class="brand">
+                <div class="brand-icon">✏️</div>
+                <div class="brand-text">
+                    <h1><span>Job Application</span> <span class="light">Tracker</span></h1>
+                    <p>Track submissions, interviews, & offers</p>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <div class="cell-card">
+                    <div class="cell-label">DATE TODAY</div>
+                    <div class="cell-value" id="current-date">Sep 29, 2026</div>
+                </div>
+
+                <div class="cell-card">
+                    <div class="cell-label">DAY OF WEEK</div>
+                    <div class="cell-value" id="current-day">Tuesday</div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="stats">
+            <div class="totalApplied">
+                <h3>Total Applied</h3>
+                <p id="totalCount" class="big-number">0</p>
+            </div>
+            <div class="overview"><canvas id="statusChart"></canvas></div>
+            <div class="monthly"><canvas id="monthlyChart"></canvas></div>
+        </section>
+
+        <div class="table-header">
+            <div class="table-title">
+                <h2>Job Tracker</h2>
+                <p>Track all of your job details and submissions</p>
+            </div>
+            <button class="add-job" type="button">+ Add Job</button>
+        </div>
+
+        <table class="applications-table">
             <thead>
                 <tr>
                     <th>Company</th>
                     <th>Role</th>
+                    <th>Level</th>
+                    <th>Location</th>
                     <th>Date Applied</th>
                     <th>Status</th>
                     <th>Notes</th>
-                    <th>Upload Files</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
-
             <tbody>
                 <tr>
                     <td>Microsoft</td>
                     <td>Software Engineer</td>
+                    <td>Entry Level</td>
+                    <td>San Francisco</td>
                     <td>22/11/2026</td>
-                    <td>
-                        <span class="status applied">Applied</span>
-                    </td>
-                    <td>....</td>
-                    <td>
-                        <button class="upload-btn">Upload</button>
+                    <td><span class="status applied">Applied</span></td>
+                    <td>—</td>
+                    <td class="row-actions">
+                        <button class="action-btn edit-btn" type="button" title="Edit job" aria-label="Edit job">✎</button>
+                        <button class="action-btn delete-btn" type="button" title="Delete job" aria-label="Delete job">🗑</button>
                     </td>
                 </tr>
-
                 <tr>
                     <td>Google</td>
                     <td>Backend Engineer</td>
+                    <td>Entry Level</td>
+                    <td>San Francisco</td>
                     <td>20/11/2026</td>
-                    <td>
-                        <span class="status interview">Interview</span>
-                    </td>
+                    <td><span class="status interview">Interview</span></td>
                     <td>Technical interview scheduled</td>
-                    <td>
-                        <button class="upload-btn">Upload</button>
+                    <td class="row-actions">
+                        <button class="action-btn edit-btn" type="button" title="Edit job" aria-label="Edit job">✎</button>
+                        <button class="action-btn delete-btn" type="button" title="Delete job" aria-label="Delete job">🗑</button>
                     </td>
                 </tr>
-
                 <tr>
                     <td>Amazon</td>
                     <td>Software Development Engineer</td>
+                    <td>Entry Level</td>
+                    <td>San Francisco</td>
                     <td>18/11/2026</td>
-                    <td>
-                        <span class="status rejected">Rejected</span>
-                    </td>
+                    <td><span class="status rejected">Rejected</span></td>
                     <td>Application closed</td>
-                    <td>
-                        <button class="upload-btn">Upload</button>
+                    <td class="row-actions">
+                        <button class="action-btn edit-btn" type="button" title="Edit job" aria-label="Edit job">✎</button>
+                        <button class="action-btn delete-btn" type="button" title="Delete job" aria-label="Delete job">🗑</button>
                     </td>
                 </tr>
             </tbody>
         </table>
-            </section>
-         </main>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+    <script src="script.js"></script>
 </body>
 </html>
